@@ -12,7 +12,6 @@ The Hospital Management System includes a variety of functionalities to manage h
   *Add and manage doctors
   *Add and manage other admins
   *View and manage user messages
-
 2)Appointment Booking: Secure and real-time appointment scheduling for patients.
 3)User Messaging: Real-time messaging feature for seamless communication between users.
 4)User registration
