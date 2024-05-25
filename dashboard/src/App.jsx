@@ -22,7 +22,7 @@ const App = () => {
     const fetchUser=async()=>{
       try{
         const  response=await axios.get(
-          "http://localhost:5000/api/v1/user/admin/me",{
+          "https://mern-stack-hospital-management-system-i4hi.onrender.com/api/v1/user/admin/me",{
             withCredentials:true
           }
         )

@@ -47,7 +47,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/appointment/post",
+        "https://mern-stack-hospital-management-system-i4hi.onrender.com/api/v1/appointment/post",
         {
           firstName,
           lastName,
