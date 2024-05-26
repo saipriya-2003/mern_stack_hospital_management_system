@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await axios
-      .get("https://mern-stack-hospital-management-system-i4hi.onrender.com/api/v1/user/patient/logout", {
+      .get("http://localhost:5000/api/v1/user/patient/logout", {
         withCredentials: true,
       })
       .then((res) => {
@@ -28,8 +28,6 @@ const Navbar = () => {
   const goToLogin = () => {
     navigateTo("/login");
   };
-  console.log("Authentication status: ", isAuthenticated);
-
 
   return (
     <>
@@ -58,7 +56,6 @@ const Navbar = () => {
               LOGIN
             </button>
           )}
-          
         </div>
         <div className="hamburger" onClick={() => setShow(!show)}>
           <GiHamburgerMenu />
