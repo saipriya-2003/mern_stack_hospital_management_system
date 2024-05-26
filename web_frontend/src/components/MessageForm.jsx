@@ -11,7 +11,7 @@ const MessageForm = () => {
   const handelMessage=async(e)=>{
     e.preventDefault();
     try{
-      await axios.post("https://mern-stack-hospital-management-system-i4hi.onrender.com/api/v1/message/send",
+      await axios.post("http://localhost:5000/api/v1/message/send",
       {firstName,lastName,email,phone,message},{
         withCredentials:true,
         headers:{

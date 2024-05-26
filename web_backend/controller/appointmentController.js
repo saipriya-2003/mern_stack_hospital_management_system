@@ -1,4 +1,4 @@
-import app from "../app.js"
+// import app from "../app.js"
 import {catchAsyncErrors} from "../middlewares/catchAsyncErrors.js"
 import ErrorHandler from "../middlewares/errorMiddleware.js"
 import { Appointment } from "../models/appointmentSchema.js"
@@ -12,6 +12,7 @@ export const postAppointment=catchAsyncErrors(async(req,res,next)=>{
         phone,
         nic,
         dob,
+        gender,
         appointment_date,
         department,
         doctor_firstName,
@@ -32,8 +33,7 @@ export const postAppointment=catchAsyncErrors(async(req,res,next)=>{
     if(isConflict.length===0){
         return next(new ErrorHandler("Doctor not found",404))
     }
-    if(isConflict.length>1
-    ){
+    if(isConflict.length>1){
         return next(new ErrorHandler("Doctor conflict! please contact through email or phone",404))
     }
     const doctorId=isConflict[0]._id;
@@ -43,6 +43,7 @@ export const postAppointment=catchAsyncErrors(async(req,res,next)=>{
         lastName,
         email,
         phone,
+        dob,
         nic,
         gender,
         appointmet_date,
@@ -58,6 +59,7 @@ export const postAppointment=catchAsyncErrors(async(req,res,next)=>{
     })
     res.status(200).json({
         success:true,
+        appointment,
         message:"appointment sent successfully"
     })
 })
@@ -71,7 +73,7 @@ export const getAllAppointments=catchAsyncErrors(async(req,res,next)=>{
 })
 
 export const updateAppointmentStatus=catchAsyncErrors(async(req,res,next)=>{
-    const {id}=req.param;
+    const {id}=req.params;
     let appointment=await Appointment.findById(id);
     if(!appointment){
         return next(new ErrorHandler("Appointment not found",404));
@@ -89,7 +91,7 @@ export const updateAppointmentStatus=catchAsyncErrors(async(req,res,next)=>{
 })
 
 export const deleteAppointment=catchAsyncErrors(async(req,res,next)=>{
-    const {id}=req.param;
+    const {id}=req.params;
     let appointment=await Appointment.findById(id);
     if(!appointment){
         return next(new ErrorHandler("appointment not found",404))

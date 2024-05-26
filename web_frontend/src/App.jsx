@@ -18,11 +18,11 @@ import Footer from './components/Footer'
 import axios from 'axios'
 
 const  App=()=> {
-  const {isAuthenticated,setIsAuthenticated,user,setUser}=useContext(Context)
+  const {isAuthenticated,setIsAuthenticated,setUser}=useContext(Context)
   useEffect(()=>{
     const fetchUser=async()=>{
       try{
-        const response=await axios.get("https://mern-stack-hospital-management-system-i4hi.onrender.com/api/v1/user/admin/me",{
+        const response=await axios.get("http://localhost:5000/api/v1/user/patient/me",{
           withCredentials:true
         }
      ); setIsAuthenticated(true)

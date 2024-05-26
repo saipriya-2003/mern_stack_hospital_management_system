@@ -8,7 +8,7 @@ import messageRouter from './router/messageRouter.js';
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import userRouter from './router/userRouter.js'
 import applicationRouter from './router/appointmentRouter.js'
-// import {messageRouter} from "./router/messageRouter.js";
+
 
 const app=express();
 config({path:"./config/config.env"});
